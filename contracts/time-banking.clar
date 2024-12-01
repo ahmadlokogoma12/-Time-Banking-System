@@ -23,6 +23,11 @@
   }
 )
 
+(define-map user-addresses
+  { address: principal }
+  { user-id: uint }
+)
+
 (define-map services
   { service-id: uint }
   {
@@ -52,15 +57,9 @@
 
 ;; Private Functions
 (define-private (get-user-id (address principal))
-  (fold get-user-id-iter (map-keys users) u0)
-)
-
-(define-private (get-user-id-iter (user-id uint) (result uint))
-  (let ((user (unwrap! (map-get? users { user-id: user-id }) result)))
-    (if (is-eq (get address user) address)
-      user-id
-      result
-    )
+  (match (map-get? user-addresses { address: address })
+    entry (get user-id entry)
+    u0
   )
 )
 
@@ -72,7 +71,7 @@
     (
       (new-user-id (+ (var-get user-id-nonce) u1))
     )
-    (asserts! (is-none (get-user-id tx-sender)) err-already-exists)
+    (asserts! (is-eq (get-user-id tx-sender) u0) err-already-exists)
     (map-set users
       { user-id: new-user-id }
       {
@@ -81,6 +80,10 @@
         reputation: u100,  ;; Initial reputation
         skills: skills
       }
+    )
+    (map-set user-addresses
+      { address: tx-sender }
+      { user-id: new-user-id }
     )
     (var-set user-id-nonce new-user-id)
     (ok new-user-id)
