@@ -52,7 +52,16 @@
 
 ;; Private Functions
 (define-private (get-user-id (address principal))
-  (default-to u0 (get user-id (filter (lambda (user) (is-eq (get address (get user users)) address)) (map-keys users))))
+  (fold get-user-id-iter (map-keys users) u0)
+)
+
+(define-private (get-user-id-iter (user-id uint) (result uint))
+  (let ((user (unwrap! (map-get? users { user-id: user-id }) result)))
+    (if (is-eq (get address user) address)
+      user-id
+      result
+    )
+  )
 )
 
 ;; Public Functions
