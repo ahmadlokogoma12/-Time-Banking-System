@@ -5,7 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="d014fa18-25ab-49cc-8a01-c644a9194c26" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/contracts/time-banking.clar" beforeDir="false" afterPath="$PROJECT_DIR$/contracts/time-banking.clar" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/time-banking.test.ts" beforeDir="false" afterPath="$PROJECT_DIR$/tests/time-banking.test.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -58,6 +59,7 @@
     "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
     "nodejs_package_manager_path": "npm",
+    "ts.external.directory.path": "/Users/chineduofor/Documents/GitHub/-Time-Banking-System/node_modules/typescript/lib",
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
@@ -81,7 +83,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1733063293692</updated>
-      <workItem from="1733063296445" duration="756000" />
+      <workItem from="1733063296445" duration="1296000" />
     </task>
     <servers />
   </component>
